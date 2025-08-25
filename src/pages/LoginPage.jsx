@@ -5,20 +5,28 @@ import { useAuth } from "../context/useAuth";
 export default function LoginPage() {
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleLogin = () => {
-    if (!phone.startsWith("+254")) {
-      setError("Phone number must start with +254");
-      return;
-    }
+  // simple validation: +254 followed by 9 digits
+  const isValidPhone = /^\+254\d{9}$/.test(phone);
+
+  const handleLogin = async () => {
+    setError("");
+    setLoading(true);
+
+    // simulate login delay
+    await new Promise((res) => setTimeout(res, 1500));
+
     if (phone === "+254712345678") {
       login();
       navigate("/main");
     } else {
       setError("Invalid phone number");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -51,9 +59,41 @@ export default function LoginPage() {
         {/* Button */}
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium shadow-md hover:bg-blue-700 hover:shadow-lg transition"
+          disabled={!isValidPhone || loading}
+          className={`w-full py-3 rounded-xl font-medium shadow-md transition flex items-center justify-center
+            ${
+              loading || !isValidPhone
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 text-white"
+            }`}
         >
-          Login
+          {loading ? (
+            <span className="flex items-center gap-2">
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 100 16v-4l-3.5 3.5L12 24v-4a8 8 0 01-8-8z"
+                ></path>
+              </svg>
+              Logging in...
+            </span>
+          ) : (
+            "Login"
+          )}
         </button>
       </div>
     </div>

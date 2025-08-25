@@ -14,7 +14,6 @@ function MainPage() {
       try {
         const data = await fetchUsers();
 
-        // Ensure data is always an array
         if (Array.isArray(data)) {
           setUsers(data);
           setFiltered(data);
@@ -54,21 +53,21 @@ function MainPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 p-6">
-      {/* Page Header */}
-      <h1 className="text-3xl font-extrabold text-gray-800 text-center mb-6">
+      {/* Header */}
+      <h1 className="text-3xl font-extrabold text-gray-800 text-center mb-8">
         User Directory
       </h1>
 
       {/* Search */}
       <div className="max-w-xl mx-auto">
-        <SearchBar placeholder=" Search users..." onSearch={handleSearch} />
+        <SearchBar placeholder="Search users..." onSearch={handleSearch} />
       </div>
 
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         {filtered.map((user) => (
           <CardComponent
-            key={user.id || user._id} // ✅ works for both id or _id
+            key={user.id || user._id}
             title={user.name || user.fullName || "Unnamed User"}
             to={`/detail/${user.id || user._id}`}
           />
@@ -77,9 +76,11 @@ function MainPage() {
 
       {/* Empty State */}
       {filtered.length === 0 && (
-        <p className="text-center text-gray-500 mt-10">
-          No users found. Try another search.
-        </p>
+        <div className="text-center mt-12">
+          <p className="text-gray-500 text-lg">
+            No users found. Try another search.
+          </p>
+        </div>
       )}
     </div>
   );

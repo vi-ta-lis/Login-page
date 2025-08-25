@@ -21,7 +21,11 @@ export default function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage />}
+            errorElement={ErrorPage}
+          />
           <Route
             path="/main"
             element={
