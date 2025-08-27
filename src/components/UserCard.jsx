@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Card({ title, to }) {
+function UserCard({ title, to }) {
   return (
     <Link
       to={to}
@@ -15,4 +15,4 @@ function Card({ title, to }) {
   );
 }
 
-export default Card;
+export default UserCard;

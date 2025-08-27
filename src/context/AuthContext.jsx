@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 
-// 1. Create and export the context
-export const AuthContext = createContext();
+// 1. Create the context
+const AuthContext = createContext();
 
-// 2. Create and export the provider
-export function AuthProvider({ children }) {
+// 2. Create the provider
+function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -30,3 +30,5 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+export { AuthContext, AuthProvider };

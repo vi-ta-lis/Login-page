@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchUsers } from "../services/api";
 import SearchBar from "../components/SearchBar";
-import CardComponent from "../components/Card";
+import CardComponent from "../components/UserCard";
 
 function MainPage() {
   const [users, setUsers] = useState([]);
