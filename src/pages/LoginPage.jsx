@@ -29,13 +29,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md">
         {/* Header */}
-        <h1 className="text-3xl font-extrabold text-center text-gray-800">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-center text-gray-800">
           Welcome Back
         </h1>
-        <p className="text-center text-gray-500 mt-1 mb-6">
+        <p className="text-center text-gray-500 mt-1 mb-6 text-sm sm:text-base">
           Login with your phone number
         </p>
 
@@ -45,12 +45,12 @@ export default function LoginPage() {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="e.g. +254712345678"
-          className="w-full border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 p-3 rounded-xl mb-3 outline-none transition"
+          className="w-full border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 p-3 rounded-xl mb-3 outline-none transition text-sm sm:text-base"
         />
 
         {/* Error */}
         {error && (
-          <p className="text-red-500 text-sm mb-3 text-center bg-red-50 py-2 rounded">
+          <p className="text-red-500 text-xs sm:text-sm mb-3 text-center bg-red-50 py-2 rounded">
             {error}
           </p>
         )}
@@ -59,10 +59,10 @@ export default function LoginPage() {
         <button
           onClick={handleLogin}
           disabled={!isValidPhone || loading}
-          className={`w-full py-3 rounded-xl font-medium shadow-md transition flex items-center justify-center
+          className={`w-full py-2 sm:py-3 rounded-xl font-medium shadow-md transition flex items-center justify-center text-sm sm:text-base
             ${
               loading || !isValidPhone
-                ? "bg-gray-400 cursor-not-allowed"
+                ? "bg-gray-400 cursor-not-allowed text-white"
                 : "bg-blue-600 hover:bg-blue-700 text-white"
             }`}
         >
