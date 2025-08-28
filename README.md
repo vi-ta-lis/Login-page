@@ -9,8 +9,9 @@ This React Login Page provides a simple authentication interface where users can
 Install my-project with npm
 
 ```bash
-  npm install create vite@latest
+  npm create vite@latest
   cd youbloom
+  npm npm install
   npm run dev
 ```
     
