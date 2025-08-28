@@ -1,4 +1,3 @@
-// src/components/SearchBar.jsx
 function SearchBar({ placeholder, onSearch }) {
   return (
     <input

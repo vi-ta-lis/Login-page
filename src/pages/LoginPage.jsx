@@ -16,7 +16,6 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
 
-    // simulate login delay
     await new Promise((res) => setTimeout(res, 1500));
 
     if (phone === "+254712345678") {
