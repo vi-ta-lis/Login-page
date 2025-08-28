@@ -1,16 +1,34 @@
-<<<<<<< HEAD
-# Login-page
-=======
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Login App
 
-Currently, two official plugins are available:
+This React Login Page provides a simple authentication interface where users can enter phone number to sign in. It includes form input validation, and error handling for incorrect or missing inputs. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> master
+Install my-project with npm
+
+```bash
+  npm install create vite@latest
+  cd youbloom
+  npm run dev
+```
+    
+## Features
+
+- User Authentication Form : Phone number input field for user login.
+- Form Validation : Ensures required fields are filled before submission.
+- Error Handling : Displays error messages for incorrect or missing inputs.
+- Unit Testing : Includes tests using React Testing Library (with Vitest) to verify component behavior.
+
+- Responsive UI – Works across different screen sizes.
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm test
+```
+
